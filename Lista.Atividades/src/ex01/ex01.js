@@ -1,16 +1,17 @@
 // selecionar os elementos do DOM
 let inputvalorDaConta = document.querySelector("#valorDaConta")
-let inputqtdeCliente = document.querySelector("#qtdeCliente")
+let inputQtdeCliente = document.querySelector("#qtdeCliente")
 let inputtotalPorCliente = document.querySelector("#totalPorCliente")
 let btnCalcular = document.querySelector("#btnCalcular")
 
 function calcularValorPorCliente(){
-    let varlorDaConta = inputValorDaConta.value
-    let qtdDeClientes = inputQtdeClientes.value
+    let valorDaConta = inputvalorDaConta.value
+    let qtdDeClientes = inputQtdeCliente.value
     //CALCULAR TOTAL POR CLIENTE
-    let valorPorCliente = valorDaConta / qtdeDeClientes
+    let valorPorCliente = valorDaConta / qtdDeClientes
 
-    inputtotalPorCliente.value = valorPorCliente        
+    inputtotalPorCliente.value = valorPorCliente
+            
 }
 
-btnCalcular.onClick = calcularValorPorCliente
+btnCalcular.onclick = calcularValorPorCliente
