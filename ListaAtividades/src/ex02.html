@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvimento Web Dinâmico</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Desenvolvimento Web Dinâmico
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Exercícios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="ex01.html">Ex 01</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="ex02.html">Ex 02</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="ex03.html">Ex 03</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="ex04.html">Ex 04</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main id="app" class="container">
+        <h1 class="mt-4">Exercício 02 - Loja</h1>
+        <form>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label for="valorProduto" class="form-label">Valor da compra</label>
+                    <input type="text" name="valorProduto" id="valorProduto" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label for="valorDaConta" class="form-label">Preço do Produto</label>
+                    <select type="text" name="formaPagamento" id="formaPagamento" class="form-select" />
+                        <option selected disabled value="0">Selecione</option>
+                        <option value="V">A vista</option>
+                        <option value="P">Em 3x</option>
+                    </select>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <label for="totalPorCliente" class="form-label">Total</label>
+                        <input disabled type="text" name="totalParcelado" id="totalParcelado" class="form-control" />
+                    </div>
+                
+                    <div class="col-md-2">
+                        <label for="totalPorCliente" class="form-label">Parcelamento</label>
+                        <div class="alert alert-primary" id="infoParcela">
+
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+    <script type="module" src="./js/ex02.js"></script>
+</body>
+
+</html>
