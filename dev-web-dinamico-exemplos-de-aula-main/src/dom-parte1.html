@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvimento Web Dinâmico</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg text-bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="/">Desenvolvimento Web Dinâmico</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Exemplos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="/dom-parte1.html/">DOM Parte 1</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <h2 class="mb-4 mt-4">
+            Criando e Adicionado Elementos no DOM | Eventos: click() e
+            change()
+        </h2>
+
+        <h3>Lista de Disciplinas</h3>
+        <div class="row">
+            <div class="col-12 m4">
+                <form id="form-disciplina">
+                    <label>
+                        <input class="form-control" name="disciplina" id="disciplina" type="text"
+                            placeholder="Disciplina" />
+                    </label>
+                    <button id="btnAdd" type="button" class="btn text-bg-info">Adicionar</button>
+                </form>
+            </div>
+            <div class="col-12 m-4">
+                <ul id="listaDisciplinas" class="list-group">
+                    <li class="list-group-item">Desenvolvimento Web 1</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <h3>Cursos</h3>
+        <form class="grid">
+            <label>
+                Campus
+                <select id="campus">
+                    <option disabled selected>Selecione</option>
+                </select>
+            </label>
+            <label>
+                Curso Superiores:
+                <select id="curso">
+                    <option disabled selected>Selecione</option>
+                </select>
+            </label>
+        </form>
+    </main>
+    <footer class="rodape">rodapé</footer>
+    <script type="module" src="js/dom-parte1.js"></script>
+</body>
+
+</html>

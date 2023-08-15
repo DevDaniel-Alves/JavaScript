@@ -15,5 +15,3 @@ function calcularValorPorCliente(){
 }
 
 btnCalcular.onclick = calcularValorPorCliente
-
-
