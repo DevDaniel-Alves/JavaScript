@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvimento Web Dinâmico</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary" id="navbar">
+       
+    </nav>
+    <main class="container">
+        <h2 class="mb-4 mt-4">
+            Criando e Adicionado Elementos no DOM | Eventos: click()
+           
+        </h2>
+        <h3 class="mb-4">Lista de Disciplinas</h3>
+        <div class="row">
+            <div class="col-12 m-4">
+                <form id="form-disciplina">
+                    <label>
+                        <input class="form-control" name="disciplina" id="disciplina" type="text" placeholder="Disciplina" />
+                    </label>
+                    <button type="button" id="btn-adicionar" class="btn btn-primary">Adicionar</button>
+                </form>
+            </div>
+            <div class="col-12 m-4">
+                <ul id="lista-disciplinas" class="list-group">
+                    <li class="list-group-item">Desenvolvimento Web 1</li>
+                </ul>
+            </div>
+        </div><!-- row-->
+    </main>
+    <script type="module" src="./js/lista-disciplinas.js"></script>
+</body>
+
+</html>
