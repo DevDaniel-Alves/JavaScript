@@ -8,7 +8,7 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="/"
+                <a class="navbar-brand text-white" href="/"
                     >Desenvolvimento Web Dinâmico</a
                 >
                 <button
@@ -48,23 +48,12 @@
             </div>
         </nav>
         <main class="container">
-            <section class="row mt-4">
-                <div class="col-4">
-                    <div class="card">
-                        <header class="card-header text-bg-primary">
-                            <h5 class="card-title">Cadastro de Clientes</h5>
-                        </header>
-                        <div class="card-body">
-                            <p class="card-text">
-                                Atividade de Exemplo utilizando a API VIA CEP
-                                para preenchimento automático de endereço.
-                            </p>
-                            <a href="/cadastro-cliente" class="btn btn-primary">Acessar</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <slot/>
             <script src="../js/libs.js"></script>
         </main>
+            <script>
+            //@ts-nocheck
+            
+        </script>
     </body>
 </html>

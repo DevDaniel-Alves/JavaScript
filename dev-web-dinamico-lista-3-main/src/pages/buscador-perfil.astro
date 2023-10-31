@@ -36,11 +36,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/cadastro-cliente"
-                                        >Ex 01 - Cadastro de Clientes</a
-                                    >
+                                    <a class="dropdown-item" href="/cadastro-cliente">Ex 01 - Cadastro de Clientes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/buscador-perfil">Ex 02 - Buscador Perfil</a>
                                 </li>
                             </ul>
                         </li>
@@ -125,6 +124,7 @@
                                             <i class="bi bi-geo-alt-fill text-primary"
                                             ></i><span>${usuario.location}</span>
                                         </p>
+                                        <a class="link-offset-2 link-underline link-underline-opacity-0" href="${usuario.html_url}" target="_blank">Acesse o Perfil</a>
                                     </div>
                                 </div><!-- Fim do card de exibição do usuário-->`;
         displayCard.innerHTML = cardUsuariohtml
