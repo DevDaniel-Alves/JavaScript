@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Desenvolvimento Web Dinâmico</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="/"
+                    >Desenvolvimento Web Dinâmico</a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle text-light"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Lista de Exercícios 3
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/cadastro-cliente"
+                                        >Ex 01 - Cadastro de Clientes</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="container h-100">
+            <section class="row mt-4 justify-content-center g-2">
+                <div class="col-4">
+                    <h1 class="display-6 text-center">GitHub Finder</h1>
+                    <div class="container">
+                        <!-- Início do Card do Formulário de Busca -->
+                        <form class="card bg-body-secondary rounded">
+                            <div class="row g-2 card-body">
+                                <div class="col-12 form-floating">
+                                    <input
+                                        type="search"
+                                        class="form-control"
+                                        id="nomeUsuario"
+                                        name="nomeUsuario"
+                                        placeholder="Nome de Usuário"
+                                    />
+                                    <label for="nomeUsuario" class="form-label"
+                                        >Nome de Usuário</label
+                                    >
+                                </div><!--col -->
+                                <div class="col-12">
+                                    <button
+                                        class="btn btn-primary w-100"
+                                        id="btnBuscar"
+                                        type="submit">Buscar</button
+                                    >
+                                </div><!--col -->
+                            </div><!--row -->
+                        </form><!-- fim do card do formulário de busca -->
+                        <div class="row mt-2 g-2">
+                            <div class="col">
+                                <div id="displayCard">
+
+                                </div>
+                                <!--INICIO CARD USUARIO -->
+                                <!--Card para Exibição do Usuário -->
+
+                                <!--FIM CARD USUARIO -->
+                            </div>
+                            <!--col -->
+                        </div>
+                    </div><!--container -->
+                </div><!--col -->
+            </section>
+        </main>
+    </body>
+    <script src="../js/libs.js"></script>
+    <script>
+        //@ts-nocheck
+        const form = document.querySelector("form");
+        const inputNomeUsuario = form.nomeUsuario;
+        const displayCard = document.querySelector('#displayCard')
+
+        async function localizarPerfil(nomeUsuario) {
+            let response = await fetch(
+                `http://api.github.com/users/${nomeUsuario}`,
+            );
+            let usuario = await response.json();
+            return usuario; //ELE SÓ VAI BUSCAR A API E RETORNA OS DADOS, SÓ É RESPONSAVEL DE TRAZER OS DADOS
+        }
+
+        async function carregarUsuario() {
+            let usuario = await localizarPerfil(inputNomeUsuario.value);
+            let cardUsuariohtml = `  
+                                <div class="card bg-body-secondary rounded">
+                                    <div class="card-body text-center">
+                                        <img
+                                            class="rounded-circle w-25 border border-3 border-primary"
+                                            src="${usuario.avatar_url}"
+                                        />
+                                        <p class="fs-4">
+                                            ${usuario.name}
+                                        </p>
+                                        <p class="fs-6 d-flex justify-content-center gap-1">
+                                            <i class="bi bi-geo-alt-fill text-primary"
+                                            ></i><span>${usuario.location}</span>
+                                        </p>
+                                    </div>
+                                </div><!-- Fim do card de exibição do usuário-->`;
+        displayCard.innerHTML = cardUsuariohtml
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // DESABILITA O RECARREGAMENTO DA PAGINA
+            carregarUsuario();
+        });
+    </script>
+</html>
