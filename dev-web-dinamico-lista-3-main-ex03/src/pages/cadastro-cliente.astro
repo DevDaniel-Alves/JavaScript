@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout titulo="Pagina Inicial">
+    <section class="row mt-4 justify-content-center">
+        <div class="col-8">
+            <h1 class="display-6 text-primary">Cadastro de Clientes</h1>
+            <form class="container">
+                <div class="row g-2">
+                    <div class="form-floating col-12">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nome"
+                            name="nome"
+                            placeholder="nome"
+                        />
+                        <label for="nome" class="form-label">Nome</label>
+                    </div>
+                </div><!-- row -->
+                <div class="row g-2 mt-2">
+                    <div class="form-floating col-2">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="cep"
+                            name="cep"
+                            placeholder="cep"
+                        />
+                        <label for="cep" class="form-label">CEP</label>
+                    </div>
+                    <div class="form-floating col-8">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="logradouro"
+                            name="logradouro"
+                            placeholder="logradouro"
+                        />
+                        <label for="nome" class="form-label">Logradouro</label>
+                    </div>
+                    <div class="form-floating col-2">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="numero"
+                            name="logradouro"
+                            placeholder="numero"
+                        />
+                        <label for="nome" class="form-label">Número</label>
+                    </div>
+                </div><!--row -->
+                <div class="row g-2 mt-2">
+                    <div class="form-floating col-4">
+                        <select name="cidade" id="cidade" class="form-select">
+                            <option value="-1">Selecione</option>
+                        </select>
+                        <label for="cidade" class="form-label"> Cidade</label>
+                    </div><!--col -->
+                    <div class="form-floating col-4">
+                        <select name="estado" id="estado" class="form-select">
+                            <option value="-1">Selecione</option>
+                        </select>
+                        <label for="estado" class="form-label"> Estado</label>
+                    </div>
+                </div><!--row -->
+                <div class="row mt-2 g-2">
+                    <div class="col-2">
+                        <button class="btn btn-primary w-100" type="button"
+                            >Salvar</button
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        //@ts-nocheck
+        const inputCep = document.querySelector("#cep");
+        const inputLogradouro = document.querySelector("#logradouro");
+
+        inputCep.onblur = () => {
+            consultarEndereco(inputCep.value);
+        };
+        async function consultarEndereco(cep) {
+            let response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            let dados = await response.json();
+            inputLogradouro.value = dados.logradouro;
+        }
+    </script>
+</BaseLayout>

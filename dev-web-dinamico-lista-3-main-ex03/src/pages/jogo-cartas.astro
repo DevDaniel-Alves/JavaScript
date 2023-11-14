@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout titulo="Jogo de Cartas">
+    <section class="row mt-4">
+        <div class="col-12">
+            <button class="btnNovo btn btn-primary">Novo Baralho</button>
+            <button class="btnComprar btn btn-secondary">Comprar Carta</button>
+            <div class="displayCarta mt-4">
+
+            
+            </div>
+        </div>
+    </section>
+
+    <script>
+        //@ts-nocheck
+        const newButton = document.querySelector('#btnNovo')
+        const buttonBuy = document.querySelector('#btnComprar')
+        const displayCarta = document.querySelector('#displayCarta')
+        let deck = {}
+        let carta ={}
+        
+        
+        async function criarBaralho(){
+            const response = await fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+            deck = await response.json()
+        }
+        async function comprarCarta(){
+            const response = await  fetch(`https://www.deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=2`)
+            const dados = await response.json()
+            carta = dados.cards[0]
+        }
+        function mostrarCarta(){
+            const img = document.createElement('img')
+            img.src = 'image'
+            displayCarta.appendChild(img)
+        }
+        newButton.addEventListener('click', function() {
+            criarBaralho()
+        })
+        buttonBuy.addEventListener('click', async function(){
+            await comprarCarta()
+            mostrarCarta()
+        })
+
+    </script>
+</BaseLayout>   

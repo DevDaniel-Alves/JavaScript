@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Desenvolvimento Web Dinâmico</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="/"
+                    >Desenvolvimento Web Dinâmico</a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle text-light"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Lista de Exercícios 3
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/cadastro-cliente"
+                                        >Ex 01 - Cadastro de Clientes</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/buscador-perfil"
+                                        >Ex 02 - Buscador de Perfil Github</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="container">
+            <section class="row mt-4">
+                <div class="col-12">
+                    <h1 class="display-6">Agenda de Contatos</h1>
+                    <form class="card bg-body-secondary rounded mb-3">
+                        <div class="row g-2 card-body">
+                            <div class="col-6 form-floating">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="nomeContato"
+                                    placeholder="Nome do Contato"
+                                />
+                                <label for="nomeContato" class="form-label"
+                                    >Nome do Contato</label
+                                >
+                            </div><!--col -->
+                            <div class="col-2">
+                                <button
+                                    class="btn btn-primary w-100 h-100"
+                                    id="btnBuscar"
+                                    type="submit">Buscar</button
+                                >
+                            </div><!--col -->
+                        </div><!--row -->
+                    </form><!--card -->
+                </div>
+            </section>
+            <script src="../js/libs.js"></script>
+            <script>
+                //@ts-nocheck
+               
+            </script>
+        </main>
+    </body>
+</html>

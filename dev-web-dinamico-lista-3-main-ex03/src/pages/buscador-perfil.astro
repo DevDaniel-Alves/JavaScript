@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout titulo="Pagina Inicial">
+    <section class="row mt-4 justify-content-center g-2">
+        <div class="col-4">
+            <h1 class="display-6 text-center">GitHub Finder</h1>
+            <div class="container">
+                <form class="card bg-body-secondary rounded">
+                    <div class="row g-2 card-body">
+                        <div class="col-12 form-floating">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nomeUsuario"
+                                name="nomeUsuario"
+                                placeholder="Nome de Usuário"
+                            />
+                            <label for="nomeUsuario" class="form-label"
+                                >Nome de Usuário</label
+                            >
+                        </div><!--col -->
+                        <div class="col-12">
+                            <button
+                                class="btn btn-primary w-100"
+                                id="btnBuscar"
+                                type="submit">Buscar</button
+                            >
+                        </div><!--col -->
+                    </div><!--row -->
+                </form><!--card -->
+                <div class="row mt-2 g-2">
+                    <div class="col">
+                        <div id="displayCard"></div>
+                        <!-- Inicio do Card de Usuário -->
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-grow" role="status" id="carregamento">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <!-- fim do card do usuário -->
+                    </div><!-- col -->
+                </div>
+            </div><!--container -->
+        </div><!--col -->
+    </section>
+    <script>
+        //@ts-nocheck
+        const form = document.querySelector("form");
+        const inputNomeUsuario = form.nomeUsuario;
+        const displayCard = document.querySelector("#displayCard");
+
+        const carregamento = document.querySelector("#carregamento")
+        carregamento.style.display = 'none'
+    
+        async function localizarPerfil(nomeUsuario) {
+            carregamento.style.display = 'block'
+            let response = await fetch(
+                `https://api.github.com/users/${nomeUsuario}`
+                
+            );
+            let usuario = await response.json();
+            carregamento.style.display = 'none'
+            return usuario;
+        }
+        async function carregarUsuario() {
+            let usuario = await localizarPerfil(inputNomeUsuario.value);
+    
+            let cardUsuarioHtml = `
+    
+               <div class="card bg-body-secondary rounded">
+                                        <div class="card-body text-center">
+                                            <img
+                                                class="rounded-circle w-25 border border-3 border-primary"
+                                                src="${usuario.avatar_url}"
+                                            />
+                                            <p class="fs-4">
+                                               ${usuario.name}
+                                            </p>
+                                            <p
+                                                class="fs-6 d-flex justify-content-center gap-1"
+                                            >
+                                                <i
+                                                    class="bi bi-geo-alt-fill text-primary"
+                                                ></i><span>${usuario.location}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+               `;
+            displayCard.innerHTML = cardUsuarioHtml;
+        }
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // desabilita o evento padrão do Navegador
+            carregarUsuario();
+        });
+    </script>
+</BaseLayout>
